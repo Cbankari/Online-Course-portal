@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnHub - Learn New Skills Online</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content container">
+      <a href="index.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        LearnHub
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact </a>
+      </div>
+      <button id="themeToggle" class="btn btn-outline" style="margin-left: 1rem;">
+  🌙
+</button>
+      <div class="nav-actions" id="navActions">
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="hero-gradient-1"></div>
+      <div class="hero-gradient-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        #1 Online Learning Platform
+      </div>
+      <h1 class="hero-title">
+        Learn Skills That<br>
+        <span class="gradient-text">Shape Your Future</span>
+      </h1>
+      <p class="hero-description">
+        Master <span class="highlight">Web Development</span>, <span class="highlight">Data Science</span>, <span class="highlight">Design</span> & <span class="highlight">Marketing</span>
+        with expert-led video courses. Watch real YouTube lessons, track your progress, and earn certificates.
+      </p>
+
+      <!-- Search -->
+      <form class="search-form" id="searchForm">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input class="search-input" type="text" id="searchInput" placeholder="Search for courses, skills...">
+        </div>
+        <button class="btn btn-gradient btn-lg" type="submit">Search</button>
+      </form>
+
+      <div class="hero-buttons">
+        <a href="courses.html" class="btn btn-gradient btn-lg">
+          <svg style="width:1.25rem;height:1.25rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Browse All Courses
+        </a>
+        <a href="signup.html" class="btn btn-outline btn-lg">
+          Start for Free
+          <svg style="width:1.25rem;height:1.25rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-features">
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Free to start
+        </div>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Real YouTube videos
+        </div>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Progress tracking
+        </div>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Certificates
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Featured Courses -->
+  <section class="courses-section" id="courses">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">
+          <svg style="width:1rem;height:1rem;stroke:currentColor;" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Featured Courses
+        </span>
+        <h2 class="section-title">Learn from the <span class="gradient-text">Best</span></h2>
+        <p class="section-description">20 expert-led courses across Web Development, Data Science, Design, and Marketing — each with real YouTube video lessons.</p>
+      </div>
+      <div class="courses-grid" id="coursesGrid">
+        <div class="loading" style="grid-column:1/-1;">
+          <div class="loader"></div>
+          <p style="margin-top:1rem;">Loading courses...</p>
+        </div>
+      </div>
+      <div class="section-footer">
+        <a href="courses.html" class="btn btn-gradient btn-lg">
+          View All 20 Courses
+          <svg style="width:1.25rem;height:1.25rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Browse by Topic</span>
+        <h2 class="section-title">Explore <span class="gradient-text">Categories</span></h2>
+        <p class="section-description">Find the perfect learning path for your goals</p>
+      </div>
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Student Reviews</span>
+        <h2 class="section-title">What Our <span class="gradient-text">Students Say</span></h2>
+       
+      </div>
+      <div class="testimonial-container">
+        <div class="testimonial-card" id="testimonialCard"></div>
+        <div class="testimonial-controls">
+          <button class="testimonial-btn" id="prevTestimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+          <button class="testimonial-btn" id="nextTestimonial">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <div class="newsletter-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <h2>Stay Ahead of the <span class="gradient-text">Curve</span></h2>
+          <p>Get weekly learning tips, new course announcements, and exclusive discounts delivered to your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address">
+            <button type="submit" class="btn btn-gradient">Subscribe</button>
+          </form>
+          <p class="newsletter-note">No spam, unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Start Your <span class="gradient-text">Learning Journey?</span></h2>
+        <p class="cta-description">Access 20 expert courses with real YouTube lessons, progress tracking, and certificates — all in one place.</p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="btn btn-gradient btn-lg">Get Started Free</a>
+          <a href="courses.html" class="btn btn-outline btn-lg">Browse Courses</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <span class="logo-text">LearnHub</span>
+                    </div>
+                    <p>Empowering learners worldwide with quality education and expert-led courses.</p>
+                   
+                    
+                </div>
+
+                <div class="footer-column">
+                    <h3>Platform</h3>
+                    <ul>
+                        <li><a href="courses.html">Browse Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="profile.html">My Profile</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        
+                
+                       
+    
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 LearnHub. All rights reserved. Built with ❤️ for learners worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>

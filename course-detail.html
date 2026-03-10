@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Detail - LearnHub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content container">
+      <a href="index.html" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        LearnHub
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="courses.html" class="active">Courses</a>
+      </div>
+      <div class="nav-actions" id="navActions">
+        <a href="login.html" class="btn btn-outline">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div style="padding:7rem 0 0;background:var(--bg-primary);">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.9375rem;color:var(--text-muted);padding-bottom:1rem;">
+        <a href="index.html" style="color:var(--text-muted);text-decoration:none;">Home</a>
+        <svg style="width:1rem;height:1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <a href="courses.html" style="color:var(--text-muted);text-decoration:none;">Courses</a>
+        <svg style="width:1rem;height:1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <span style="color:var(--primary);font-weight:500;" id="breadcrumbTitle">Course</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Detail -->
+  <section class="course-detail-section" style="padding-top:1rem;">
+    <div class="container">
+      <div class="course-detail-grid">
+
+        <!-- Main Content -->
+        <div class="course-detail-main">
+          <div id="courseDetailContent">
+            <div class="loading">
+              <div class="loader"></div>
+              <p style="margin-top:1rem;">Loading course...</p>
+            </div>
+          </div>
+
+          <!-- Video List -->
+          <div class="course-videos-section">
+            <h2 class="section-title-small">Course Content</h2>
+            <div class="course-videos-list" id="courseVideos">
+              <div class="loading"><div class="loader"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="course-detail-sidebar">
+          <div class="enrollment-card">
+            <div id="enrollmentContent">
+              <div class="loading"><div class="loader"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Modal -->
+  <div class="premium-modal" id="premiumModal">
+    <div class="premium-modal-content">
+      <button class="close-modal-btn" onclick="closePremiumModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <svg class="premium-modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+      <h2>Premium Content</h2>
+      <p>Enroll in this course to unlock all video lessons, track your progress, and earn a certificate.</p>
+      <div class="premium-modal-actions">
+        <button class="btn btn-outline" onclick="closePremiumModal()">Maybe Later</button>
+<button class="btn btn-gradient" onclick="goToPayment()">Enroll Now</button>      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+   <!-- Set breadcrumb title once course loads -->
+  <!-- <script>
+   
+    const observer = new MutationObserver(() => {
+      const h1 = document.querySelector('#courseDetailContent h1');
+      if (h1) {
+        const bc = document.getElementById('breadcrumbTitle');
+        if (bc) bc.textContent = h1.textContent.length > 40 ? h1.textContent.substring(0,40) + '...' : h1.textContent;
+      }
+    });
+    observer.observe(document.getElementById('courseDetailContent'), { childList: true, subtree: true });
+  </script> -->
+
+  <!-- <script>
+
+function goToPayment(){
+
+  const params = new URLSearchParams(window.location.search);
+  const courseId = params.get("id");
+
+  if(!courseId){
+    alert("Course not found");
+    return;
+  }
+
+  window.location.href = "payment.html?courseId=" + courseId;
+
+}
+
+</script> -->
+</body>
+</html>

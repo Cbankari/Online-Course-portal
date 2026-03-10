@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LearnHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span class="logo-text">LearnHub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="courses.html">Courses</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="form-container">
+        <div class="form-card">
+            <div class="form-header">
+                <h1>Welcome Back</h1>
+                <p>Login to your account to continue learning</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                    <span class="form-error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+                    <span class="form-error" id="passwordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                        <input type="checkbox" id="remember" style="width: auto;">
+                        <span style="font-size: 0.9375rem;">Remember me</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-gradient btn-lg" style="width: 100%; margin-top: 1rem;">
+                    Login
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="form-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    clearErrors();
+
+    let isValid = true;
+
+    if (!email) {
+        showError('emailError', 'Email is required');
+        isValid = false;
+    }
+
+    if (!password) {
+        showError('passwordError', 'Password is required');
+        isValid = false;
+    }
+
+    if (!isValid) return;
+
+    // ================= BACKEND LOGIN =================
+    fetch("http://localhost:3001/api/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+
+            // Store logged in user
+            localStorage.setItem("currentUser", JSON.stringify(data.user));
+
+            showToast("Login successful!", "success");
+
+            setTimeout(() => {
+                window.location.href = "login-otp.html"; 
+                // or dashboard.html
+            }, 1500);
+
+        } else {
+            showToast(data.error || "Invalid email or password", "error");
+        }
+    })
+    .catch(error => {
+        showToast("Server not running. Start backend first.", "error");
+    });
+});
+
+// ================= HELPER FUNCTIONS =================
+
+function showError(id, message) {
+    const element = document.getElementById(id);
+    element.textContent = message;
+    element.style.color = "red";
+}
+
+function clearErrors() {
+    document.querySelectorAll('.form-error').forEach(el => {
+        el.textContent = "";
+    });
+}
+
+function showToast(message, type = "success") {
+    const container = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+
+    toast.style.padding = "10px";
+    toast.style.margin = "10px";
+    toast.style.borderRadius = "5px";
+    toast.style.color = "#fff";
+    toast.style.fontSize = "14px";
+
+    toast.style.backgroundColor = type === "success" ? "green" : "red";
+
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
